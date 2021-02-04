@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <stdlib.h>
+#include "get_next_line.h"
 
 char    *ft_aux(char *s, int c)
 {
@@ -23,12 +22,12 @@ char    *ft_aux(char *s, int c)
 int     get_next_line (char **line)
 {
     char buffer;
-    int flag;
+    int flag = 0;
 
     if(!line  || !(*line = malloc (1)))
         return (-1);
     *line [0] = '\0';
-    while (flag = read(0, &buffer, 1) > 0)
+    while ((flag = read(0, &buffer, 1)) > 0)
     {
         if (buffer == '\n')
         break;
